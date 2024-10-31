@@ -1,5 +1,5 @@
-// import Hero from "@/components/hero/Hero";
 import type { Metadata } from "next";
+import Hero from "@/components/hero/Hero";
 
 export const metadata: Metadata = {
   title: "Sign In",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 async function page() {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
     </>
   );
 }
