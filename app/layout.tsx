@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-// import Footer from "@/components/footer/Footer";
+import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 
 const open_Sans = Open_Sans({ subsets: ["latin"] });
@@ -34,7 +34,7 @@ export default function RootLayout({
           profilePath="https://res.cloudinary.com/dyryptpqq/image/upload/v1729810401/AlphaHerbs-Images/usersProfileImages/alpha-herbs.png"
         />
         <div className="mt-16">{children}</div>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
