@@ -1,7 +1,15 @@
-import EditProfile from "@/components/profile/EditProfile";
+import { Metadata } from "next";
+import { redirect } from "next/navigation";
+
 import { getUserDataFromDB } from "@/db/db";
 import { getSession } from "@/lib/lib";
-import { redirect } from "next/navigation";
+
+import EditProfile from "@/components/profile/EditProfile";
+
+export const metadata: Metadata = {
+  title: "Profile Edit",
+};
+
 
 async function page() {
   const sessionData = await getSession();

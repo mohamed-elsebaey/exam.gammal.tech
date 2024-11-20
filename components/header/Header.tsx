@@ -28,13 +28,16 @@ function Header({
   return (
     // ( py-4 px-4 md:px-10 max-w-screen-xl mx-auto ) add this classes to all  sections.
     <OutsideClickHandler onOutsideClick={closeMenueHandler}>
-    <div className="bg-background fixed top-0 left-0 right-0 border-b-2 border-primary/20 z-50 ">
+    <div className="bg-background fixed top-0 left-0 right-0 border-b-2 border-primary/20 z-50 min-h-[75px]">
       <div className="container flex flex-wrap items-center justify-between py-2 text-foreground">
         <Link href="/#" className="max-w-[160px]" onClick={closeMenueHandler}>
-          <img
+          <Image
+          width={500}
+          height={100}
             src="https://lwfiles.mycourse.app/64f9d95d01ac55bf5644ea7a-public/c186678f7cd589c185fff8baa189e685.png"
             alt="logo"
-            className="max-w-full"
+            className=""
+            loading="lazy"
           />
         </Link>
         {/* *************** Menu Icon in small devices ************** */}
@@ -56,7 +59,7 @@ function Header({
           } w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="w-full font-medium flex flex-col gap-5 md:gap-8 items-center p-4 md:p-0 mt-4 border border-white/5 rounded-lg bg-white/10 md:flex-row  md:mt-0 md:border-0 md:bg-transparent ">
+          <ul className="w-full font-medium flex flex-col gap-5 md:gap-8 items-center p-4 md:py-2 mt-4 border border-white/5 rounded-lg bg-white/10 md:flex-row  md:mt-0 md:border-0 md:bg-transparent ">
             <NavLink
               label="Home"
               link="/"

@@ -28,7 +28,7 @@ async function UserRanking() {
               className="w-12 h-12 object-cover object-top"
             />
           </div>
-          <Link href="#" className="flex gap-2 text-gray-500 group">
+          <Link href="/ranking" className="flex gap-2 text-gray-500 group">
             See All
             <MoveRight  className="group-hover:translate-x-1 duration-300"/>
           </Link>
