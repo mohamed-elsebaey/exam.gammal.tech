@@ -15,6 +15,7 @@ function HeroSection() {
             alt=""
             className="w-[500px] h-[400px] object-cover object-center"
             loading="lazy"
+            priority={true}
           />
         </div>
         <div>
@@ -25,6 +26,7 @@ function HeroSection() {
             alt=""
             className="w-[500px] h-[300px] object-cover object-center"
             loading="lazy"
+            priority={true}
           />
         </div>
       </div>
