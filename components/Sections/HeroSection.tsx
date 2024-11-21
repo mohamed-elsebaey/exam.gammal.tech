@@ -14,7 +14,6 @@ function HeroSection() {
             height={400}
             alt=""
             className="w-[500px] h-[400px] object-cover object-center"
-            loading="lazy"
             priority={true}
           />
         </div>
@@ -25,7 +24,6 @@ function HeroSection() {
             height={300}
             alt=""
             className="w-[500px] h-[300px] object-cover object-center"
-            loading="lazy"
             priority={true}
           />
         </div>
