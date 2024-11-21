@@ -15,6 +15,9 @@ const config: Config = {
         foreground: "#f4ece7",
         primary: "#094546",
         secondary: "#f4ece7",
+        gold: '#F1D302',
+        silver: '#B2B2B2',
+        bronze: '#CD7F32',
       },
       container: {
         center: true,

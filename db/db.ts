@@ -204,6 +204,12 @@ export async function getTop5UsersRanking() {
   );
   return topUsers;
 }
+export async function getUsersRanking() {
+  const usersRanking = executeQuery(
+    " SELECT * FROM users WHERE points > 0 ORDER BY points DESC"
+  );
+  return usersRanking;
+}
 
 // ---------------------------------------------------------------------------------------
 
