@@ -2,10 +2,10 @@
 import axios from "axios";
 import { redirect } from "next/navigation";
 
-export const sendPaymentRequestAction = async (
+export async function sendPaymentRequestAction(
   prevState: any,
   formData: FormData
-) => {
+) {
   const id: string = formData.get("id")?.toString().trim() || "";
   const name: string = formData.get("name")?.toString().trim() || "";
   const email: string = formData.get("email")?.toString().trim() || "";
@@ -106,5 +106,4 @@ export const sendPaymentRequestAction = async (
   }
 
   redirect(redirectUrl);
-
-};
+}
