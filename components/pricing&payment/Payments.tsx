@@ -3,7 +3,7 @@ import { sendPaymentRequestAction } from "@/app/(payments)/_actions/sendPaymentR
 import SubmitButton from "@/ui/SubmitButton";
 import React, { useActionState } from "react";
 
-function payments({
+function Payments({
   id,
   name,
   email,
@@ -91,4 +91,4 @@ function payments({
   );
 }
 
-export default payments;
+export default Payments;
