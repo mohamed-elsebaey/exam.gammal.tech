@@ -35,7 +35,7 @@ const Avatar = ({
               width={350}
               height={350}
               alt="AVA"
-              priority={true}
+              loading='lazy'
             />
             <span
               className={`duration-100 transform ${
