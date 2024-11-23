@@ -11,9 +11,9 @@ async function PricingPage() {
           Select the plan that’s right for you
         </h2>
         <div className="flex justify-center gap-10 flex-wrap">
-          <PricingCard plan="Economy" price={50} attempts={12} isLogin={isLogin}/>
-          <PricingCard plan="Gold" price={150} attempts={45} isLogin={isLogin}/>
-          <PricingCard plan="Premium" price={299} attempts={110} isLogin={isLogin}/>
+          <PricingCard plan="Economy" price={50} attempts={10} isLogin={isLogin}/>
+          <PricingCard plan="Gold" price={150} attempts={40} isLogin={isLogin}/>
+          <PricingCard plan="Premium" price={299} attempts={100} isLogin={isLogin}/>
         </div>
       </div>
     </>
