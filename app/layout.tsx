@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
@@ -29,11 +30,11 @@ export default async function RootLayout({
   const sessionData = await getSession();
   const userId = sessionData?.user?.id;
 
-  let user : any;
+  let user: any;
   if (userId) {
     user = await getUserDataFromDB(userId);
   }
-  const userRole = user?.role || false 
+  const userRole = user?.role || false;
   const profilePath =
     user?.image_url ||
     "https://res.cloudinary.com/dyryptpqq/image/upload/v1729810401/AlphaHerbs-Images/usersProfileImages/alpha-herbs.png";
@@ -45,6 +46,7 @@ export default async function RootLayout({
       >
         <Header login={user} userRole={userRole} profilePath={profilePath} />
         <div className="mt-16 min-h-[550px]">{children}</div>
+        <Analytics />
         <Footer />
       </body>
     </html>
