@@ -82,10 +82,10 @@ export async function userCredentials(
       userId,
       email,
     ]);
-    await executeQuery("INSERT INTO users_questions(user_id, email) VALUES (?,?)", [
-      userId,
-      email,
-    ]);
+    await executeQuery(
+      "INSERT INTO users_questions(user_id, email) VALUES (?,?)",
+      [userId, email]
+    );
 
     const user = {
       id: userId,
@@ -149,7 +149,7 @@ export async function userDataAuthentication(email: string, password: string) {
   }
 
   const user: any = existingUser[0];
-  
+
   const isPasswordMatch = await bcrypt.compare(password, user.password);
 
   if (!isPasswordMatch) {
@@ -211,26 +211,14 @@ export async function getUsersRanking() {
   return usersRanking;
 }
 
-// ---------------------------------------------------------------------------------------
 
-// export async function cleanCoreExams() {
-//   try {
-//     const coreExams: any = await executeQuery("SELECT * FROM users_questions");
-//     for (const exam of coreExams) {
-//       const existingUser = await executeQuery(
-//         "SELECT * FROM users WHERE id = ?",
-//         [exam.user_id]
-//       );
-//       if (existingUser.length == 0) {
-//         console.log(exam.user_id);
-//         await executeQuery("DELETE FROM users_questions WHERE  user_id = ?", [
-//           exam.user_id,
-//         ]);
-//       }
-//     }
+// *************************************** core exams **************************************************
 
-//     console.log("تم تنظيف جدول users_questions بنجاح");
-//   } catch (error) {
-//     console.error("حدث خطأ أثناء تنظيف الجدول:", error);
-//   }
-// }
+export async function getCoreLanguages() {
+  const core_languages = executeQuery(
+    " SELECT * FROM core_languages"
+  );
+  return core_languages;
+}
+
+// *************************************** ********** **************************************************
