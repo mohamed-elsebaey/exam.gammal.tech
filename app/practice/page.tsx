@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { getSession } from "@/lib/lib";
 import { redirect } from "next/navigation";
 import Profile from "@/components/profile/Profile";
-import { getCoreLanguages, getUserDataFromDB } from "@/db/db";
+import {
+  getCoreLanguages,
+  getCoreLanguagesDataByUserId,
+  getUserDataFromDB,
+} from "@/db/db";
 import Practice from "@/components/practice/Practice";
 
 export const metadata: Metadata = {
@@ -20,11 +24,12 @@ async function page() {
     redirect("/sign-in?path=practice");
   }
 
-  const core_languages  = await getCoreLanguages();
-
+  const core_languages = await getCoreLanguages();
+  const userFlow = await getCoreLanguagesDataByUserId(userId);
+  
   return (
     <div className="py-20">
-      <Practice languages={core_languages}/>
+      <Practice languages={core_languages} userFlow={userFlow}/>
     </div>
   );
 }

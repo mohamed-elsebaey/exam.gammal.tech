@@ -211,12 +211,16 @@ export async function getUsersRanking() {
   return usersRanking;
 }
 
-
 // *************************************** core exams **************************************************
 
 export async function getCoreLanguages() {
+  const core_languages = executeQuery(" SELECT * FROM core_languages");
+  return core_languages;
+}
+
+export async function getCoreLanguagesDataByUserId(id:number) {
   const core_languages = executeQuery(
-    " SELECT * FROM core_languages"
+    "SELECT C_Programming, Cpp_Programming, Data_Structures, Algorithms, OOP FROM core_exams WHERE user_id = ?",[id]
   );
   return core_languages;
 }
