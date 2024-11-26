@@ -6,7 +6,7 @@ import HeroImg from '@/public/codeImages/code.png'
 function HeroSection() {
   return (
     <div className="py-12 bg-primary bg-bg-2 bg-contain bg-center">
-      <div className="grid lg:grid-cols-2 gap-12 container items-center justify-between">
+      <div className="grid lg:grid-cols-2 gap-12 container items-center justify-center lg:justify-between">
         <div className="bg-white p-8 rounded-lg">
           <Image
             src={HeroImg.src}
@@ -17,7 +17,7 @@ function HeroSection() {
             priority={true}
           />
         </div>
-        <div>
+        <div className="hidden sm:block">
           <Image
             src="https://readymadeui.com/management-img.webp"
             width={500}

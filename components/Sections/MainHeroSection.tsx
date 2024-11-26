@@ -20,7 +20,7 @@ function MainHeroSection() {
   const words = text.split(" ");
   return (
     <div className="container">
-      <div className="flex justify-between py-28">
+      <div className="flex justify-center md:justify-between items-center py-28">
         <div className="p-10 relative before:absolute before:left-0 before:top-0 before:w-2 before:h-full before:bg-background2">
           <motion.div
             initial="hidden"
@@ -63,7 +63,7 @@ function MainHeroSection() {
             </Link>
           </motion.div>
         </div>
-        <div>
+        <div className="hidden md:block">
           <Image
             src={heroImage.src}
             width={600}
