@@ -1,33 +1,54 @@
-import type { Metadata } from "next";
-import { getSession } from "@/lib/lib";
-import { redirect } from "next/navigation";
+import React from "react";
 import {
-  getCoreLanguages,
-  getCoreLanguagesDataByUserId,
-  getUserDataFromDB,
+  getCoreLanguagesTopicsByProgrammingId,
+  getLanguageIdByProgrammingLanguage,
 } from "@/db/db";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Core Exams",
-};
+interface BlogPostPageProps {
+  params: Promise<{
+    programming_language: string;
+  }>;
+}
 
-async function page() {
-  const sessionData = await getSession();
-  const userId = sessionData?.user?.id;
+export async function generateMetadata(props: BlogPostPageProps) {
+  const params = await props.params;
 
-  let user: any;
-  if (userId) {
-    user = await getUserDataFromDB(userId);
-  } else {
-    redirect("/sign-in?path=dynamic-practice");
+  return {
+    title: params.programming_language,
+  };
+}
+
+async function page(props: BlogPostPageProps) {
+  const params = await props.params;
+
+  const languages_id = await getLanguageIdByProgrammingLanguage(
+    params.programming_language
+  );
+  if (languages_id.length != 1) {
+    redirect(`/?${params.programming_language} not Founded`);
   }
 
-  const core_languages = await getCoreLanguages();
-  const userFlow = await getCoreLanguagesDataByUserId(userId);
+  const core_languages_topics = await getCoreLanguagesTopicsByProgrammingId(
+    languages_id[0].id
+  );
 
   return (
     <div className="py-20">
-      <h1>123</h1>
+      <div className="container">
+        <div className="flex justify-center items-center gap-5 flex-wrap">
+          {core_languages_topics.map((topic: any) => {
+            return (
+              <div
+                key={topic.topic_id}
+                className="w-72 rounded-xl px-6 py-4 border-2 text-center"
+              >
+                <h1>{topic.topic_name}</h1>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

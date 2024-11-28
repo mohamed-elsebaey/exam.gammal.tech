@@ -218,11 +218,31 @@ export async function getCoreLanguages() {
   return core_languages;
 }
 
-export async function getCoreLanguagesDataByUserId(id:number) {
+export async function getCoreLanguagesDataByUserId(id: number) {
   const core_languages = executeQuery(
-    "SELECT C_Programming, Cpp_Programming, Data_Structures, Algorithms, OOP FROM core_exams WHERE user_id = ?",[id]
+    "SELECT C_Programming, Cpp_Programming, Data_Structures, Algorithms, OOP FROM core_exams WHERE user_id = ?",
+    [id]
   );
   return core_languages;
+}
+
+export async function getLanguageIdByProgrammingLanguage(
+  programming_language: string
+) {
+  const programming_language_id: any = executeQuery(
+    "SELECT id FROM core_languages WHERE `programming_language` = ?",
+    [programming_language]
+  );
+  return programming_language_id;
+}
+export async function getCoreLanguagesTopicsByProgrammingId(
+  programming_id: number
+) {
+  const programming_language_topics: any = executeQuery(
+    "SELECT * FROM core_languages_topics WHERE language_id = ?",
+    [programming_id]
+  );
+  return programming_language_topics;
 }
 
 // *************************************** ********** **************************************************
