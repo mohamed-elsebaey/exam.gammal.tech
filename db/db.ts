@@ -235,6 +235,7 @@ export async function getLanguageIdByProgrammingLanguage(
   );
   return programming_language_id;
 }
+
 export async function getCoreLanguagesTopicsByProgrammingId(
   programming_id: number
 ) {
