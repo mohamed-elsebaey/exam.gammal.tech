@@ -55,7 +55,7 @@ async function page({
           {core_languages_topics.map((topic: any) => {
             const active = languageFlow + 1 >= topic.topic_id ? true : false;
             const style = active
-              ? `bg-green-500/95 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400`
+              ? `bg-green-500/95 cursor-pointer hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400`
               : `bg-gray-300 cursor-not-allowed select-none`;
             return (
               <button
