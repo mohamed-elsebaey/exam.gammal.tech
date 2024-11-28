@@ -6,7 +6,6 @@ import {
   getCoreLanguagesDataByUserId,
   getUserDataFromDB,
 } from "@/db/db";
-import Practice from "@/components/practice/Practice";
 
 export const metadata: Metadata = {
   title: "Core Exams",
@@ -20,15 +19,15 @@ async function page() {
   if (userId) {
     user = await getUserDataFromDB(userId);
   } else {
-    redirect("/sign-in?path=practice");
+    redirect("/sign-in?path=dynamic-practice");
   }
 
   const core_languages = await getCoreLanguages();
   const userFlow = await getCoreLanguagesDataByUserId(userId);
-  
+
   return (
     <div className="py-20">
-      <Practice languages={core_languages} userFlow={userFlow}/>
+      <h1>123</h1>
     </div>
   );
 }

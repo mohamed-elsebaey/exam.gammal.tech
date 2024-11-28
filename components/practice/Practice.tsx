@@ -12,10 +12,9 @@ function Practice({ languages, userFlow }: { languages: any; userFlow?: any }) {
               language.total_topics) *
             100
           ).toFixed(0);
-          console.log(`w-[${rate}%]`)
           return (
             <Link
-              href=""
+              href={`/practice/${language.programming_language}`}
               className="relative border border-gray-200 rounded-lg shadow w-[40%] min-w-96 p-6 flex items-center gap-4 hover:scale-[1.02] duration-200"
               key={language.id}
             >
