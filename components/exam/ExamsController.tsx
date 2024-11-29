@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Exam from "./Exam";
 import { examCorrection } from "@/app/exam/_action/examCorrection";
 
+import LoadingPage from "@/app/loading";
+
 interface quizData {
   id: string;
   question: string;
@@ -11,6 +13,7 @@ interface quizData {
 }
 
 function ExamsController({ quizData }: { quizData: quizData[] }) {
+  const [show, setShow] = useState(true);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
@@ -26,6 +29,7 @@ function ExamsController({ quizData }: { quizData: quizData[] }) {
     } else {
       // setQuestionNumber(0);
       examCorrection([...answers, answer]);
+      setShow(false);
     }
   }
 
@@ -36,8 +40,8 @@ function ExamsController({ quizData }: { quizData: quizData[] }) {
       setCount((prevCount) => {
         if (prevCount === 1) {
           clearInterval(intervalId);
-          // setQuestionNumber(() => questionNumber + 1);
           examsAnswers("");
+          clearInterval(intervalId);
         }
         return prevCount ? prevCount - 1 : 0;
       });
@@ -48,11 +52,19 @@ function ExamsController({ quizData }: { quizData: quizData[] }) {
   // ********************************* *** Timer  End  *** *********************************
 
   return (
-    <Exam
-      examQuestions={questions[questionNumber]}
-      onClick={examsAnswers}
-      count={count}
-    />
+    <>
+      {show ? (
+        <Exam
+          examQuestions={questions[questionNumber]}
+          onClick={examsAnswers}
+          count={count}
+        />
+      ) : (
+        <div className="-mt-20">
+          <LoadingPage />
+        </div>
+      )}
+    </>
   );
 }
 
