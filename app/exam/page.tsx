@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getUserDataFromDB } from "@/db/db";
 
 import ExamsController from "@/components/exam/ExamsController";
+import { quizData } from "@/lesson1";
 
 export const metadata: Metadata = {
   title: "Exam Page",
@@ -23,7 +24,7 @@ async function page() {
 
   return (
     <div className="py-20">
-      <ExamsController/>
+      <ExamsController quizData={quizData}/>
     </div>
   );
 }
