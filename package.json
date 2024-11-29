@@ -20,9 +20,11 @@
     "mysql2": "^3.11.3",
     "next": "15.0.2",
     "next-auth": "^4.24.10",
+    "prism-react-renderer": "^2.4.0",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
-    "react-outside-click-handler": "^1.3.0"
+    "react-outside-click-handler": "^1.3.0",
+    "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -30,6 +32,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-outside-click-handler": "^1.3.4",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8",
     "eslint-config-next": "15.0.2",
     "postcss": "^8",
