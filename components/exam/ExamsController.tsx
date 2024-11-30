@@ -22,33 +22,47 @@ function ExamsController({ quizData }: { quizData: quizData[] }) {
 
   const questions = quizData;
 
-  function examsAnswers(answer: string) {
+  function examsAnswers(answer: string, calledFromUseEffect?: boolean) {
     if (questions.length - 1 > questionNumber) {
       setAnswers([...answers, answer]);
       setQuestionNumber((questionNumber) => questionNumber + 1);
+      !calledFromUseEffect && setCount(15);
     } else {
-      // setQuestionNumber(0);
+      // setCount(0)
       examCorrection([...answers, answer]);
-      setShow(false);
     }
   }
 
   // ********************************* *** Timer Start *** *********************************
-  useEffect(() => {
-    setCount(duration);
-    const intervalId = setInterval(() => {
-      setCount((prevCount) => {
-        if (prevCount === 1) {
-          clearInterval(intervalId);
-          examsAnswers("");
-          clearInterval(intervalId);
-        }
-        return prevCount ? prevCount - 1 : 0;
-      });
-    }, 1000);
+  // useEffect(() => {
+  //   setCount(duration);
+  //   const intervalId = setInterval(() => {
+  //     setCount((prevCount) => {
+  //       if (prevCount === 1) {
+  //         clearInterval(intervalId);
+  //         examsAnswers("");
+  //         clearInterval(intervalId);
+  //       }
+  //       return prevCount ? prevCount - 1 : 0;
+  //     });
+  //   }, 1000);
 
-    return () => clearInterval(intervalId);
-  }, [questionNumber]);
+  //   return () => clearInterval(intervalId);
+  // }, [questionNumber]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      count - 1
+        ? setCount(() => (count ? count - 1 : 0))
+        : questions.length - 1 > questionNumber && setCount(15);
+    }, 1000);
+    return () => {
+      clearInterval(intervalId);
+      if (count === 1) {
+        examsAnswers("", true);
+      }
+    };
+  }, [examsAnswers]);
   // ********************************* *** Timer  End  *** *********************************
 
   return (
