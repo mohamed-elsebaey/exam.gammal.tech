@@ -28,7 +28,7 @@ function ExamsController({ quizData }: { quizData: quizData[] }) {
       setQuestionNumber((questionNumber) => questionNumber + 1);
       !calledFromUseEffect && setCount(15);
     } else {
-      // setCount(0)
+      setCount(0)
       examCorrection([...answers, answer]);
     }
   }
@@ -54,7 +54,7 @@ function ExamsController({ quizData }: { quizData: quizData[] }) {
     const intervalId = setInterval(() => {
       count - 1
         ? setCount(() => (count ? count - 1 : 0))
-        : questions.length - 1 > questionNumber && setCount(15);
+        : questions.length - 1 > questionNumber ? setCount(15) : setCount(0);
     }, 1000);
     return () => {
       clearInterval(intervalId);
