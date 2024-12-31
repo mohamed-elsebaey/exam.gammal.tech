@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SignUp from "@/components/sign-in-up/SignUp";
+import SignIn from "@/components/sign-in-up/SignIn";
 
 export const metadata: Metadata = {
   title: "Sign Up",
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
 async function page() {
   return (
     <>
-      <SignUp/>
+      {/* <SignUp/> */}
+      <SignIn/>
     </>
   );
 }
