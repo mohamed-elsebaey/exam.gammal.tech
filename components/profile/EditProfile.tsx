@@ -1,12 +1,13 @@
 "use client";
 import SubmitButton from "@/ui/SubmitButton";
 import React, { useActionState, useState } from "react";
+
 import ProfileAvatar from "./ProfileAvatar";
 import { profileEditActions } from "@/actions/profileEditActions";
 
 function EditProfile({ userData }: any) {
   const [formState, formAction] = useActionState(profileEditActions, {});
-
+  console.log(formState)
   const names = (userData.name || "").split(" ");
   const first_name = names[0] || "";
   const last_name = names.slice(1).join(" ") || "";

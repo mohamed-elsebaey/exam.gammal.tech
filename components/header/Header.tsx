@@ -10,11 +10,11 @@ import Avatar from "./Avatar";
 
 function Header({
   login,
-  userRole,
+  // userRole,
   profilePath,
 }: {
   login: boolean;
-  userRole: string;
+  // userRole: string;
   profilePath: string;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
