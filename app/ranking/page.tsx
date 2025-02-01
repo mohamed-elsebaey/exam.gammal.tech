@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import SignIn from "@/components/sign-in-up/SignIn";
+// import SignIn from "@/components/sign-in-up/SignIn";
 import { getSession } from "@/lib/lib";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 import Ranking from "@/components/ranking/Ranking";
 
 export const metadata: Metadata = {

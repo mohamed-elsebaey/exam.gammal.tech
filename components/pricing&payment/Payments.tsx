@@ -20,6 +20,7 @@ function Payments({
 }) {
 
   const [formState, formAction] = useActionState(sendPaymentRequestAction, null);
+  console.log(formState)
   return (
     <div className="container">
       <div className="mx-auto mt-6 sm:mt-8 lg:mt-0 md:w-[70%]">

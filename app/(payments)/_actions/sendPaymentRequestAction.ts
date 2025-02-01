@@ -17,19 +17,19 @@ export async function sendPaymentRequestAction(
   // Merchant codes based on environment (replace with environment variables)
   const fawryProductionMerchantCode: string =
     process.env.FAWRY_PRODUCTION_MERCHANT_CODE || "";
-  const fawryStagingMerchantCode: string =
-    process.env.FAWRY_STAGING_MERCHANT_CODE || "";
+  // const fawryStagingMerchantCode: string =
+  //   process.env.FAWRY_STAGING_MERCHANT_CODE || "";
 
   // Secure key based on environment (replace with environment variables)
   const fawryProductionSecureKey =
     process.env.FAWRY_PRODUCTION_SECURE_KEY || "";
-  const fawryStagingSecureKey = process.env.FAWRY_STAGING_SECURE_KEY || "";
+  // const fawryStagingSecureKey = process.env.FAWRY_STAGING_SECURE_KEY || "";
 
   // Api Url (replace with environment variables)
   const fawryApiUrlProduction =
     "https://atfawry.com/fawrypay-api/api/payments/init";
-  const fawryApiUrlStating =
-    "https://atfawry.fawrystaging.com/fawrypay-api/api/payments/init";
+  // const fawryApiUrlStating =
+  //   "https://atfawry.fawrystaging.com/fawrypay-api/api/payments/init";
 
   const merchantCode: string = fawryProductionMerchantCode;
   const secureKey: string = fawryProductionSecureKey;
@@ -55,12 +55,13 @@ export async function sendPaymentRequestAction(
 
   const price: string = (planPrice - 2.5).toFixed(2);
 
-  const totalPrice: number = planPrice;
+  // const totalPrice: number = planPrice;
 
   // String concatenation (consider using template literals for readability)
   const string: string = `${merchantCode}${merchantRefNum}${id}${returnUrl}${itemId}${quantity}${price}${secureKey}`;
 
   // Signature generation using crypto (consider a crypto library for better security)
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const crypto = require("crypto");
   const signature: string = crypto
     .createHash("sha256")

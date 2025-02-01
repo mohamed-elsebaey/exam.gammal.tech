@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import {
   getCoreLanguages,
   getCoreLanguagesDataByUserId,
-  getUserDataFromDB,
+  // getUserDataFromDB,
 } from "@/db/db";
 import Practice from "@/components/practice/Practice";
 
@@ -16,9 +16,9 @@ async function page() {
   const sessionData = await getSession();
   const userId = sessionData?.user?.id;
 
-  let user: any;
+  // let user: any;
   if (userId) {
-    user = await getUserDataFromDB(userId);
+    // user = await getUserDataFromDB(userId);
   } else {
     redirect("/sign-in?path=practice");
   }

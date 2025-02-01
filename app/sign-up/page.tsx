@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SignUp from "@/components/sign-in-up/SignUp";
+// import SignUp from "@/components/sign-in-up/SignUp";
 import SignIn from "@/components/sign-in-up/SignIn";
 
 export const metadata: Metadata = {

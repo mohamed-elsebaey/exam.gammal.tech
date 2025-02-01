@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+// import React, { useEffect, useRef, useState } from "react";
 import CodeBlock from "./CodeBlock";
 
 interface ExamType {

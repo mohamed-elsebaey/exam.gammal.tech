@@ -34,7 +34,7 @@ export default async function RootLayout({
   if (userId) {
     user = await getUserDataFromDB(userId);
   }
-  const userRole = user?.role || false;
+  // const userRole = user?.role || false;
   const profilePath =
     user?.image_url ||
     "https://res.cloudinary.com/dyryptpqq/image/upload/v1729810401/AlphaHerbs-Images/usersProfileImages/alpha-herbs.png";
@@ -44,7 +44,7 @@ export default async function RootLayout({
       <body
         className={`${open_Sans.className} antialiased mx-auto max-w-[1800px]`}
       >
-        <Header login={user} userRole={userRole} profilePath={profilePath} />
+        <Header login={user}  profilePath={profilePath} />
         <div className="mt-16 min-h-[550px]">{children}</div>
         <Analytics />
         <Footer />

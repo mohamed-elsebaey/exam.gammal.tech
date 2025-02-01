@@ -19,6 +19,7 @@ const authOption: NextAuthOptions = {
       if (!profile?.email) {
         throw new Error("No profile");
       }
+      console.log(account)
 
       profile.name = profile.name ? profile.name : "user";
       profile.image = profile.image

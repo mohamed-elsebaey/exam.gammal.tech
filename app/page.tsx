@@ -1,4 +1,4 @@
-import RandomPath from "@/components/RandomPath";
+// import RandomPath from "@/components/RandomPath";
 import HeroSection from "@/components/Sections/HeroSection";
 import MainHeroSection from "@/components/Sections/MainHeroSection";
 import Top5RankSection from "@/components/Sections/Top5RankSection";
