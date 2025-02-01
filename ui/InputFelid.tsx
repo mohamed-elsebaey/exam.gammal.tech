@@ -8,7 +8,6 @@ const InputFelid = ({
   onChange,
   required,
   errorStyle,
-  max,
 }: {
   label: string;
   name: string;
@@ -17,7 +16,6 @@ const InputFelid = ({
   onChange?: ChangeEventHandler<HTMLInputElement>;
   required?: boolean;
   errorStyle?: boolean;
-  max?: string;
 }) => {
   const style = errorStyle
     ? "border-red-500 focus:border-red-500 ring-red-500/50"

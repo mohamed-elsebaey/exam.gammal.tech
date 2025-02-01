@@ -3,19 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #094546;
+  --foreground: #f4ece7;
+  --primary: #094546;
+  --secondary: #f4ece7;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .btn-primary {
+    @apply py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.container {
+  max-width: 1180px;
+  padding-left: 1rem; 
+  padding-right: 1rem; 
+}
+
+.bg-1{
+  background: url('https://cdn.prod.website-files.com/5d2cb3382be6ba1741dc013c/64e0f41e6c35b16f4e8d92eb_Pattern%203.webp') 0 0 repeat;
+  transform: rotate(30deg);
 }

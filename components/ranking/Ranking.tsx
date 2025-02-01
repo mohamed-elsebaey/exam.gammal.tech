@@ -178,8 +178,8 @@ const AddImage = ({
       loading="lazy"
       src={src}
       alt=""
-      width={50}
-      height={100}
+      width={width || 50}
+      height={height || 100}
       className="object-cover object-top"
     />
   );

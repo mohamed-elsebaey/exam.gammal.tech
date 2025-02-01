@@ -1,12 +1,12 @@
 "use client";
-import { useFormStatus } from "react-dom";
-import { useActionState, useState } from "react";
+// import { useFormStatus } from "react-dom";
+// import { useActionState, useState } from "react";
 
 import ProfileAvatar from "./ProfileAvatar";
 import Link from "next/link";
 
 function Profile({ userData }: { userData: any }) {
-  const subtype = "Gold";
+  // const subtype = "Gold";
   const userRank = 14;
   const totalUsers = 1400;
   return (

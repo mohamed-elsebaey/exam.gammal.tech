@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import OutsideClickHandler from "react-outside-click-handler";
 
-import profile from "@/public/profile-pictures/profile.png";
+// import profile from "@/public/profile-pictures/profile.png";
 import Link from "next/link";
 import { logOutAction } from "@/actions/logOutAction";
 

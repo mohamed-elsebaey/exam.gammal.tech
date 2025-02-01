@@ -11,7 +11,7 @@ export async function signInFormAction(prevState: any, formData: FormData) {
   const email = formData.get("email")?.toString().trim() || "";
   const password = formData.get("password")?.toString().trim() || "";
 
-  let errors: { email?: string; password?: string } = {};
+  const errors: { email?: string; password?: string } = {};
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     errors.email = "* Invalid Email";

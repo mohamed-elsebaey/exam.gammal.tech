@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import { useRef, useState } from "react";
 
 const MAX_FILE_SIZE = 2097152;
@@ -9,7 +9,7 @@ export default function ProfileAvatar({
   imagePath,
   addButtons,
 }: {
-  imagePath: String;
+  imagePath: string;
   addButtons?: boolean;
 }) {
   const [pickedImage, setPickedImage] = useState<any>(imagePath || "");

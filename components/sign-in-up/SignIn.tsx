@@ -2,7 +2,7 @@
 import Link from "next/link";
 import logo from "@/public/GT-Logo/GT_logo.png";
 import Image from "next/image";
-import { Suspense, useActionState, useEffect, useState } from "react";
+import {  useActionState, useEffect, useState } from "react";
 import { signInFormAction } from "@/actions/signInAction";
 import SubmitButton from "@/ui/SubmitButton";
 import InputFelid from "@/ui/InputFelid";
@@ -118,7 +118,7 @@ function SignIn() {
                 </div>
 
                 <p className="text-sm text-center mt-6">
-                  Don't have an account{" "}
+                  Don&apos;t have an account{" "}
                   <Link
                     href="/sign-up"
                     className="text-primary font-semibold hover:underline ml-1 whitespace-nowrap"

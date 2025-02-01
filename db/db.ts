@@ -51,7 +51,7 @@ export async function userCredentials(
     "SELECT * FROM users WHERE email = ?",
     [email]
   );
-  let user: any = existingUser[0];
+  const user: any = existingUser[0];
 
   if (user && (user.name != name || user.image_url != image)) {
     // user.name = name;
@@ -111,7 +111,7 @@ export async function userCredentials(
 export async function addNewUser(
   email: string,
   password: string,
-  verCode: Number
+  verCode: number
 ) {
   if (typeof password !== "string") {
     throw new Error("Password must be a string");
@@ -177,17 +177,17 @@ export async function getUserDataFromDB(id: number) {
 // ---------------------------------------------------------------------------------------
 
 export async function updateUserProfileData(
-  email: String,
+  email: string,
 
   bio: string,
   name: string,
   age: number,
-  phone: String,
-  country: String,
+  phone: string,
+  country: string,
   city: string,
   university: string,
   school: string,
-  image_url: String
+  image_url: string
 ) {
   const UpdateData = await executeQuery(
     "UPDATE users SET  bio = ?,name = ?, age = ?, phone = ? , country = ?, city = ?, university = ?, school = ?, image_url = ? WHERE email = ?",

@@ -14,7 +14,7 @@ function Header({
   profilePath,
 }: {
   login: boolean;
-  userRole: String;
+  userRole: string;
   profilePath: string;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
