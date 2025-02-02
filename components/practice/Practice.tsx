@@ -7,11 +7,11 @@ function Practice({ languages, userFlow }: { languages: any; userFlow?: any }) {
     <div className="container">
       <div className="flex flex-wrap justify-center gap-10">
         {languages.map((language: any) => {
-          const rate = (
+          const rate = Math.floor(
             (userFlow[0][`${language.programming_language}`] /
               language.total_topics) *
-            100
-          ).toFixed(0);
+              100
+          );
           return (
             <Link
               href={`/practice/${language.programming_language}`}
@@ -29,11 +29,19 @@ function Practice({ languages, userFlow }: { languages: any; userFlow?: any }) {
                 <h1 className="text-primary font-bold text-lg">
                   {language.programming_language.replace(/_/g, " ")}
                 </h1>
-                <div className="bg-gray-300 rounded-full w-full h-2.5 relative max-w-4xl mx-auto mt-8">
+                <div className="relative">
                   <div
-                    className={`h-full rounded-full bg-green-500 w-[${rate}%]`}
-                  ></div>
-                  <p className="text-sm text-green-500 font-bold absolute right-0 -top-6">
+                    className=" overflow-hidden
+                    bg-gray-300 rounded-full w-full h-2.5 relative max-w-4xl mx-auto mt-8"
+                  >
+                    <div
+                      className="h-full rounded-full bg-green-500"
+                      style={{
+                        transform: `translateX(-${100 - (rate || 0)}%)`,
+                      }}
+                    />
+                  </div>
+                  <p className="text-sm text-green-500 font-bold absolute right-0 -top-6 overflow-clip">
                     {rate}%
                   </p>
                 </div>

@@ -6,6 +6,7 @@ import {
 } from "@/db/db";
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/lib";
+import Link from "next/link";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -57,15 +58,24 @@ async function page({
             const style = active
               ? `bg-green-500/95 cursor-pointer hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400`
               : `bg-gray-300 cursor-not-allowed select-none`;
-            return (
-              <button
-                disabled={active}
-                key={topic.topic_id}
+            return !active ? (
+              <span
+                key={topic.topic_name}
+                className={`relative w-72 rounded-xl px-6 py-4 overflow-hidden text-center group transition-all ease-out duration-300 ${style}`}
+                aria-disabled="true"
+              >
+                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="relative">{topic.topic_name}</span>
+              </span>
+            ) : (
+              <Link
+                href="/exam"
+                key={topic.topic_name}
                 className={`relative w-72 rounded-xl px-6 py-4 overflow-hidden text-center group transition-all ease-out duration-300 ${style}`}
               >
                 <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                 <span className="relative">{topic.topic_name}</span>
-              </button>
+              </Link>
             );
           })}
         </div>
